@@ -1,0 +1,18 @@
+channel ID : UCyP8IObS7OXnWTFXt6CQ8MQ
+
+API KEY : AIzaSyCeW8HognSNlKq7KonuSMZCTo7QSSARG88
+
+playlistId: PL1gfuz7ZYcaM2Z7sCGOWORCF0CGmonzOv
+
+const url = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${apiKey}`;
+
+
+
+fetch url :- GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=PL1gfuz7ZYcaM2Z7sCGOWORCF0CGmonzOv&key=[YOUR_API_KEY] HTTP/1.1
+
+
+
+
+
+
+https://www.youtube.com/watch?v=DbiRVNeZPnw
