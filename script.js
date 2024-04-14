@@ -4,7 +4,7 @@ const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const volumeBtn = document.getElementById('volume');
 const progress = document.querySelector('.progress');
-const progressContainer = document.querySelector('.progress-container');
+const progressContainer = document.getElementById('progress-container');
 const musicContainer = document.getElementsByTagName('div')[0];
 const volumeBtnContainer = document.getElementsByTagName('button')[3];
 const volumeIcon = volumeBtnContainer.querySelector('i');
@@ -72,6 +72,15 @@ const updateprogress = () => {
   console.log(player.getDuration()); */
 };
 
+const setProgress = (e) => {
+  const width = progressContainer.clientWidth;
+  const clickX = e.offsetX;
+  const duration = player.getDuration();
+  console.log('clicked on load bar');
+
+  player.seekTo((clickX / width) * duration, true);
+};
+
 function stopVideo() {
   player.stopVideo();
 }
@@ -106,6 +115,7 @@ playBtn.addEventListener('click', function () {
   }
 });
 
+progressContainer.addEventListener('click', setProgress);
 volumeBtn.addEventListener('click', muteVideo);
 
 /* document.getElementById('pause').addEventListener('click', function () {
@@ -204,16 +214,6 @@ document.addEventListener('keydown', () => {
     goPrevious();
   }
 });
-/* function demoprogress() {,
-  console.log(player.getCurrentTime());
-}
-
-setInterval(demoprogress, 1000);
-
-if (player.getCurrentTime() == player.getDuration()) {
-  console.log('Video ended');
-}
- */
 
 // keyBoard controls
 
