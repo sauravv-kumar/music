@@ -91,8 +91,11 @@ function muteVideo() {
   }
 }
 
-function onPlayerStateChange() {
-  console.log('state changed - MUSIC IS PLAYING');
+function onPlayerStateChange(event) {
+  console.log(event.data);
+  if (event.data === 0) {
+    goNext();
+  }
 }
 playBtn.addEventListener('click', function () {
   if (musicContainer.classList.contains('play')) {
@@ -127,6 +130,8 @@ const apiKey = 'AIzaSyCeW8HognSNlKq7KonuSMZCTo7QSSARG88';
 
 let currentindex = 0;
 
+const songLists = [];
+
 fetch(
   `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PLFf0Wzvy9UVrSdb9my7kThyLJwijK8sYZ&key=${apiKey}`
 )
@@ -135,98 +140,71 @@ fetch(
   })
   .then((data) => {
     console.log(data);
-    const playlist = data.items;
+    songLists.push(...data.items);
 
-    if (playlist.length) {
-      const currentItem = playlist[currentindex];
+    if (songLists.length) {
+      const currentItem = songLists[currentindex];
       cover.src = currentItem.snippet.thumbnails.maxres.url;
       title.innerHTML = currentItem.snippet.title;
       console.log(title.innerText);
     }
-    nextBtn.addEventListener('click', () => {
-      if (currentindex < playlist.length - 1) {
-        currentindex++;
-      } else {
-        currentindex = 0;
-      }
-      const currentItem = playlist[currentindex];
-      cover.src = currentItem.snippet.thumbnails.maxres.url;
-      title.innerHTML = currentItem.snippet.title;
-      let apiVideoId = currentItem.snippet.resourceId.videoId;
-
-      if (musicContainer.classList.contains('play')) {
-        player.loadVideoById(apiVideoId);
-      } else {
-        player.loadVideoById(apiVideoId);
-        stopVideo();
-      }
-      console.log(title.innerText);
-    });
-
-    document.addEventListener('keydown', () => {
-      if (event.keyCode === 39) {
-        if (currentindex < playlist.length - 1) {
-          currentindex++;
-        } else {
-          currentindex = 0;
-        }
-        const currentItem = playlist[currentindex];
-        cover.src = currentItem.snippet.thumbnails.maxres.url;
-        title.innerHTML = currentItem.snippet.title;
-        let apiVideoId = currentItem.snippet.resourceId.videoId;
-
-        if (musicContainer.classList.contains('play')) {
-          player.loadVideoById(apiVideoId);
-        } else {
-          player.loadVideoById(apiVideoId);
-          stopVideo();
-        }
-        console.log(title.innerText);
-      }
-    });
-
-    prevBtn.addEventListener('click', () => {
-      currentindex--;
-      if (currentindex < 0) {
-        currentindex = playlist.length - 1;
-      }
-      const currentItem = playlist[currentindex];
-      cover.src = currentItem.snippet.thumbnails.maxres.url;
-      title.innerHTML = currentItem.snippet.title;
-      let apiVideoId = currentItem.snippet.resourceId.videoId;
-
-      if (musicContainer.classList.contains('play')) {
-        player.loadVideoById(apiVideoId);
-      } else {
-        player.loadVideoById(apiVideoId);
-        stopVideo();
-      }
-      console.log(title.innerText);
-    });
-
-    document.addEventListener('keydown', () => {
-      if (event.keyCode === 37) {
-        currentindex--;
-        if (currentindex < 0) {
-          currentindex = playlist.length - 1;
-        }
-        const currentItem = playlist[currentindex];
-        cover.src = currentItem.snippet.thumbnails.maxres.url;
-        title.innerHTML = currentItem.snippet.title;
-        let apiVideoId = currentItem.snippet.resourceId.videoId;
-
-        if (musicContainer.classList.contains('play')) {
-          player.loadVideoById(apiVideoId);
-        } else {
-          player.loadVideoById(apiVideoId);
-          stopVideo();
-        }
-        console.log(title.innerText);
-      }
-    });
   });
 
-/* function demoprogress() {
+const goNext = () => {
+  if (currentindex < songLists.length - 1) {
+    currentindex++;
+  } else {
+    currentindex = 0;
+  }
+  const currentItem = songLists[currentindex];
+  cover.src = currentItem.snippet.thumbnails.maxres.url;
+  title.innerHTML = currentItem.snippet.title;
+  let apiVideoId = currentItem.snippet.resourceId.videoId;
+
+  if (musicContainer.classList.contains('play')) {
+    player.loadVideoById(apiVideoId);
+  } else {
+    player.loadVideoById(apiVideoId);
+    stopVideo();
+  }
+  console.log(title.innerText);
+};
+
+const goPrevious = () => {
+  currentindex--;
+  if (currentindex < 0) {
+    currentindex = songLists.length - 1;
+  }
+  const currentItem = songLists[currentindex];
+  cover.src = currentItem.snippet.thumbnails.maxres.url;
+  title.innerHTML = currentItem.snippet.title;
+  let apiVideoId = currentItem.snippet.resourceId.videoId;
+
+  if (musicContainer.classList.contains('play')) {
+    player.loadVideoById(apiVideoId);
+  } else {
+    player.loadVideoById(apiVideoId);
+    stopVideo();
+  }
+  console.log(title.innerText);
+};
+
+nextBtn.addEventListener('click', goNext);
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 39) {
+    goNext();
+  }
+});
+
+prevBtn.addEventListener('click', goPrevious);
+
+document.addEventListener('keydown', () => {
+  if (event.keyCode === 37) {
+    goPrevious();
+  }
+});
+/* function demoprogress() {,
   console.log(player.getCurrentTime());
 }
 
