@@ -5,6 +5,8 @@ const nextBtn = document.getElementById('next');
 const volumeBtn = document.getElementById('volume');
 const progress = document.querySelector('.progress');
 const progressContainer = document.getElementById('progress-container');
+const volumeContainer = document.getElementById('volume-container');
+const volumeProgress = document.getElementById('volume-progress');
 const musicContainer = document.getElementsByTagName('div')[0];
 const volumeBtnContainer = document.getElementsByTagName('button')[3];
 const volumeIcon = volumeBtnContainer.querySelector('i');
@@ -81,6 +83,14 @@ const setProgress = (e) => {
   player.seekTo((clickX / width) * duration, true);
 };
 
+const toggleVolume = (e) => {
+  const width = volumeContainer.clientWidth;
+  const clickX = e.offsetX;
+  player.setVolume(clickX);
+  volumeProgress.style.width = `${clickX}%`;
+  console.log('vume working');
+};
+
 function stopVideo() {
   player.stopVideo();
 }
@@ -90,12 +100,12 @@ function muteVideo() {
   if (volumeIcon.classList.contains('fa-volume-up')) {
     console.log('Muted');
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-up');
-    volumeBtn.querySelector('i.fas').classList.add('fa-volume-mute');
+    volumeBtn.querySelector('i.fas').classList.add('fa-volume-off');
     player.mute();
   } else {
     console.log('unmute');
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-up');
-    volumeBtn.querySelector('i.fas').classList.remove('fa-volume-mute');
+    volumeBtn.querySelector('i.fas').classList.remove('fa-volume-off');
     player.unMute();
   }
 }
@@ -117,6 +127,7 @@ playBtn.addEventListener('click', function () {
 
 progressContainer.addEventListener('click', setProgress);
 volumeBtn.addEventListener('click', muteVideo);
+volumeContainer.addEventListener('click', toggleVolume);
 
 /* document.getElementById('pause').addEventListener('click', function () {
   console.log('play');
