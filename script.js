@@ -8,6 +8,9 @@ const progressContainer = document.getElementById('progress-container');
 const volumeContainer = document.getElementById('volume-container');
 const volumeProgress = document.getElementById('volume-progress');
 const musicContainer = document.getElementsByTagName('div')[0];
+const allDivs = document.querySelectorAll('div');
+const lastDiv = allDivs[allDivs.length - 1];
+const loadText = document.getElementById('text1');
 const volumeBtnContainer = document.getElementsByTagName('button')[3];
 const volumeIcon = volumeBtnContainer.querySelector('i');
 const title = document.getElementById('title');
@@ -44,6 +47,9 @@ function onYouTubeIframeAPIReady() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   // event.target.playVideo();
+  console.log('player is ready: ');
+  lastDiv.classList.add('show');
+  loadText.textContent = 'Press space to play!';
 }
 
 // 5. The API calls this function when the player's state changes.
@@ -112,8 +118,15 @@ function muteVideo() {
 
 function onPlayerStateChange(event) {
   console.log(event.data);
+
   if (event.data === 0) {
     goNext();
+  } else if (event.data === 2) {
+    loadText.innerHTML = 'Paused... Click space to play!';
+  } else if (event.data === 3) {
+    loadText.innerHTML = 'Buffering';
+  } else {
+    loadText.innerHTML = 'Listing to some good music huh!';
   }
 }
 playBtn.addEventListener('click', function () {
