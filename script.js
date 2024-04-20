@@ -7,7 +7,7 @@ const progress = document.querySelector('.progress');
 const progressContainer = document.getElementById('progress-container');
 const volumeContainer = document.getElementById('volume-container');
 const volumeProgress = document.getElementById('volume-progress');
-const musicContainer = document.getElementsByTagName('div')[0];
+const musicContainer = document.getElementsByTagName('div')[1];
 const allDivs = document.querySelectorAll('div');
 const lastDiv = allDivs[allDivs.length - 1];
 const loadText = document.getElementById('text1');
@@ -33,7 +33,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '250',
     width: '250',
-    videoId: 'NmOYcynrVuM',
+    videoId: 'dQ2NjBR4DKI',
     playerVars: {
       playsinline: 1,
     },
@@ -167,7 +167,7 @@ let currentindex = 0;
 const songLists = [];
 
 fetch(
-  `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PLFf0Wzvy9UVrSdb9my7kThyLJwijK8sYZ&key=${apiKey}`
+  `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a&key=${apiKey}`
 )
   .then((response) => {
     return response.json();

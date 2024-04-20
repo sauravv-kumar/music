@@ -7,12 +7,9 @@ playlistId: PL1gfuz7ZYcaM2Z7sCGOWORCF0CGmonzOv
 const url = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${apiKey}`;
 
 
+playlist 
 
-fetch url :- GET https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=PL1gfuz7ZYcaM2Z7sCGOWORCF0CGmonzOv&key=[YOUR_API_KEY] HTTP/1.1
+mashUP :- PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a
 
+soft eng : PLUAg255I-02YdHA2NjlHNGYkERJ0pxNeX
 
-
-
-
-
-https://www.youtube.com/watch?v=DbiRVNeZPnw
