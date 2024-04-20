@@ -15,6 +15,7 @@ const volumeBtnContainer = document.getElementsByTagName('button')[3];
 const volumeIcon = volumeBtnContainer.querySelector('i');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
+const gif = document.querySelector('.background-image');
 
 /////////////////////////////
 
@@ -268,4 +269,31 @@ document.addEventListener('keydown', () => {
     }
   }
 });
-//setInterval(updateprogress, 1000);
+
+const gifList = [
+  '/images/image (1).gif',
+  '/images/image (2).gif',
+  '/images/image (3).gif',
+  '/images/image (4).gif',
+  '/images/image (5).gif',
+  '/images/image (6).gif',
+  '/images/image (7).gif',
+  '/images/image (8).gif',
+  '/images/image (9).gif',
+  '/images/image (10).gif',
+  '/images/image (11).gif',
+  '/images/image (12).gif',
+  '/images/image (13).gif',
+  '/images/image (14).gif',
+  '/images/image (15).gif',
+  '/images/image (16).gif',
+  '/images/image (17).gif',
+];
+
+const changeGif = () => {
+  randomIndex = Math.floor(Math.random() * gifList.length - 1);
+  imageUrl = gifList[randomIndex];
+  gif.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.268), rgba(36, 128, 128, 0.5)), url('${imageUrl}')`;
+};
+
+setInterval(changeGif, 3 * 60 * 1000);

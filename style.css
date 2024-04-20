@@ -19,13 +19,18 @@ body {
   margin: 0;
 }
 
+body h1{
+  color: #d6c5da;
+}
+
 .background-image {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/image (17).gif");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.268), rgba(36, 128, 128, 0.5)),  url("/images/image (15).gif") ;
+  background-blend-mode: multiply; /* Apply the black shading */ 
   background-size: cover; /* Cover the entire viewport */
   background-position: center; /* Center the background image */
   z-index: -10; /* Ensure the background is behind other content */
