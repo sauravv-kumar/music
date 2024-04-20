@@ -5,11 +5,11 @@
 }
 
 body {
-  /* background-image: linear-gradient(
+  background-image: linear-gradient(
     0deg,
     rgb(220, 223, 226) 55.8%,
     rgb(239, 170, 170) 92%
-  ); */
+  );
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -21,6 +21,16 @@ body {
 
 body h1{
   color: #d6c5da;
+}
+
+.linkedin-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it's above other content */
+  font-size: 30px; /* Adjust icon size */
+  color: #c6cfd3; /* Adjust icon color */
+  text-decoration: none; /* Remove underline */
 }
 
 .background-image {
@@ -211,3 +221,73 @@ body h1{
 /* .discription-info h4 {
   margin: 0;
 } */
+
+/* Mobile View Styles */
+
+@media only screen and (max-width: 600px) {
+  body {
+    align-items: center; /* Align items to the start of the container */
+  }
+  body h1{
+    padding-bottom: 20%;
+  }
+
+  .background-image {
+    background-size: cover; /* Adjust background size */
+  }
+
+  .music-container {
+    padding: 10px; /* Reduce padding */
+    margin: 20px 0; /* Adjust margin */
+    display: flex; /* Adjust layout to flex */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .img-container {
+    width: 40px; /* Reduce width */
+    margin-bottom: 10px; /* Add margin bottom */
+  }
+
+  .img-container img {
+    height: 50px; /* Reduce height */
+    width: 50px;
+    border-radius: 50%; /* Add border-radius for circular shape */
+    margin-bottom: -35%;
+    margin-left: -4px;
+  }
+
+  .img-container::after {
+    background-color: #ffffff;   
+    width: 10px;
+    height: 10px;
+    transform: translate(-40%, -40%);
+  }
+
+  .action-btn {
+    font-size: 16px; /* Reduce font size */
+    padding: 8px; /* Reduce padding */
+    margin: 5px; /* Adjust margin */
+  }
+
+  .music-info,
+  .discription-info {
+    padding: 5px; /* Reduce padding */
+    width: calc(100% - 25px); /* Adjust width */
+    left: 14px; /* Adjust position */
+    text-align: center; /* Center text */
+  }
+
+  .volume-container {
+    width: 80px; /* Reduce width */
+  }
+
+  .volume-progress {
+    width: 60%; /* Reduce width */
+  }
+
+  .player-container {
+    border-width: 10px; /* Reduce border width */
+  }
+}
+
