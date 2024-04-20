@@ -299,3 +299,15 @@ const changeGif = () => {
 setInterval(changeGif, 3 * 60 * 1000);
 
 changeGif();
+
+document.addEventListener('DOMContentLoaded', () => {
+  var linkedIn = document.querySelector('.linkedin-icon');
+
+  linkedIn.addEventListener('mouseenter', () => {
+    linkedIn.style.color = '#fff';
+  });
+
+  linkedIn.addEventListener('mouseleave', () => {
+    linkedIn.style.color = '#c6cfd3';
+  });
+});
