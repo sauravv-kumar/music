@@ -297,3 +297,5 @@ const changeGif = () => {
 };
 
 setInterval(changeGif, 3 * 60 * 1000);
+
+changeGif();
