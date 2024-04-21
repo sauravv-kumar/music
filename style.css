@@ -232,8 +232,13 @@ body h1{
   body {
     align-items: center; /* Align items to the start of the container */
   }
-  body h1{
+ 
+  .logo {
     padding-bottom: 20%;
+  }
+
+  .logo h1 {
+ margin-left: -15px;
   }
 
   .background-image {
