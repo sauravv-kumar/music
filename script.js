@@ -297,12 +297,20 @@ const gifList = [
   '/images/image (15).gif',
   '/images/image (16).gif',
   '/images/image (17).gif',
+  '/images/image (18).gif',
+  '/images/image (19).gif',
+  '/images/image (20).gif',
+  '/images/image (21).gif',
+  '/images/image (22).gif',
+  '/images/image (23).gif',
+  '/images/image (24).gif',
+  '/images/image (25).gif',
 ];
 
 const changeGif = () => {
   randomIndex = Math.floor(Math.random() * gifList.length - 1);
   imageUrl = gifList[randomIndex];
-  gif.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.268), rgba(36, 128, 128, 0.5)), url('${imageUrl}')`;
+  gif.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(36, 128, 128, 0.5)), url('${imageUrl}')`;
 };
 
 setInterval(changeGif, 3 * 60 * 1000);
