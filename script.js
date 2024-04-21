@@ -7,7 +7,7 @@ const progress = document.querySelector('.progress');
 const progressContainer = document.getElementById('progress-container');
 const volumeContainer = document.getElementById('volume-container');
 const volumeProgress = document.getElementById('volume-progress');
-const musicContainer = document.getElementsByTagName('div')[1];
+const musicContainer = document.getElementsByTagName('div')[2];
 const allDivs = document.querySelectorAll('div');
 const lastDiv = allDivs[allDivs.length - 1];
 const loadText = document.getElementById('text1');
@@ -16,6 +16,8 @@ const volumeIcon = volumeBtnContainer.querySelector('i');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
 const gif = document.querySelector('.background-image');
+var musicTitle = document.createElement('h1');
+musicTitle.innerHTML = 'Chill Chords : Your Relaxation Rhythms Retreat🌻';
 
 /////////////////////////////
 
@@ -34,7 +36,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('player', {
     height: '250',
     width: '250',
-    videoId: 'dQ2NjBR4DKI',
+    videoId: 'SkTZu9oPN6E',
     playerVars: {
       playsinline: 1,
     },
@@ -127,7 +129,7 @@ function onPlayerStateChange(event) {
   } else if (event.data === 3) {
     loadText.innerHTML = 'Buffering';
   } else {
-    loadText.innerHTML = 'Listing to some good music huh!';
+    loadText.innerHTML = 'Listing To Some Good Music huh!';
   }
 }
 playBtn.addEventListener('click', function () {
@@ -167,6 +169,9 @@ let currentindex = 0;
 
 const songLists = [];
 
+currentindex = Math.floor(Math.random() * 11);
+console.log(currentindex);
+
 fetch(
   `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a&key=${apiKey}`
 )
@@ -179,13 +184,15 @@ fetch(
 
     if (songLists.length) {
       const currentItem = songLists[currentindex];
-      cover.src = currentItem.snippet.thumbnails.maxres.url;
-      title.innerHTML = currentItem.snippet.title;
-      console.log(title.innerText);
+      cover.src = '/images/image (4).gif';
+      title.innerHTML = `${musicTitle.textContent}`;
+      // console.log(title.innerText);
     }
   });
 
 const goNext = () => {
+  currentindex = Math.floor(Math.random() * 11);
+  console.log(currentindex);
   if (currentindex < songLists.length - 1) {
     currentindex++;
   } else {
@@ -193,7 +200,7 @@ const goNext = () => {
   }
   const currentItem = songLists[currentindex];
   cover.src = currentItem.snippet.thumbnails.maxres.url;
-  title.innerHTML = currentItem.snippet.title;
+  // title.innerHTML = currentItem.snippet.title;
   let apiVideoId = currentItem.snippet.resourceId.videoId;
 
   if (musicContainer.classList.contains('play')) {
@@ -206,13 +213,15 @@ const goNext = () => {
 };
 
 const goPrevious = () => {
+  currentindex = Math.floor(Math.random() * 11);
+  console.log(currentindex);
   currentindex--;
   if (currentindex < 0) {
     currentindex = songLists.length - 1;
   }
   const currentItem = songLists[currentindex];
   cover.src = currentItem.snippet.thumbnails.maxres.url;
-  title.innerHTML = currentItem.snippet.title;
+  // title.innerHTML = currentItem.snippet.title;
   let apiVideoId = currentItem.snippet.resourceId.videoId;
 
   if (musicContainer.classList.contains('play')) {

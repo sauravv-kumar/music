@@ -13,3 +13,10 @@ mashUP :- PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a
 
 soft eng : PLUAg255I-02YdHA2NjlHNGYkERJ0pxNeX
 
+
+ani:
+
+<dotlottie-player src="https://lottie.host/8f2db99d-0fcb-40d7-8749-96b88abfddb7/X72pzRCC1d.json" background="transparent" speed="0.5" style="width: 80px; height: 80px;" loop autoplay></dotlottie-player>
+
+ <dotlottie-player src="https://lottie.host/ad34c6a8-3f63-41f3-9034-26da33eb6ce3/JQV6ecIvTa.json" background="transparent" speed="0.5" style="width: 60px; height: 60x;" loop autoplay></dotlottie-player>
+      

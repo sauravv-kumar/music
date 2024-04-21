@@ -46,6 +46,10 @@ body h1{
   z-index: -10; /* Ensure the background is behind other content */
 }
 
+.logo {
+  display: flex; 
+  align-items: center; 
+}
 
 .music-container {
   background-color: #fff;
