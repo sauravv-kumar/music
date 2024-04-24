@@ -173,7 +173,7 @@ currentindex = Math.floor(Math.random() * 11);
 console.log(currentindex);
 
 fetch(
-  `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a&key=${apiKey}`
+  `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PL2EF4HKZto6swCHoX1c46zBRsxqP9Vp1Q&key=${apiKey}`
 )
   .then((response) => {
     return response.json();
@@ -305,12 +305,27 @@ const gifList = [
   '/images/image (23).gif',
   '/images/image (24).gif',
   '/images/image (25).gif',
+  '/images/image (28).gif',
+  '/images/image (29).gif',
+  '/images/image (30).gif',
+  '/images/image (31).gif',
+  '/images/image (32).gif',
+  '/images/image (33).gif',
+  '/images/image (34).gif',
+  '/images/image (35).gif',
+  '/images/image (36).gif',
+  '/images/image (37).gif',
+  '/images/image (38).gif',
+  '/images/image (39).gif',
+  '/images/image (41).gif',
 ];
 
 const changeGif = () => {
   randomIndex = Math.floor(Math.random() * gifList.length - 1);
   imageUrl = gifList[randomIndex];
   gif.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(36, 128, 128, 0.5)), url('${imageUrl}')`;
+  /* gif.style.backgroundSize = 'contain';
+  gif.style.backgroundPosition = 'center'; */
 };
 
 setInterval(changeGif, 3 * 60 * 1000);
