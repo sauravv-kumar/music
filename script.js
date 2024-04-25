@@ -11,7 +11,7 @@ const musicContainer = document.getElementsByTagName('div')[2];
 const allDivs = document.querySelectorAll('div');
 const lastDiv = allDivs[allDivs.length - 1];
 const loadText = document.getElementById('text1');
-const volumeBtnContainer = document.getElementsByTagName('button')[3];
+const volumeBtnContainer = document.getElementsByTagName('button')[4];
 const volumeIcon = volumeBtnContainer.querySelector('i');
 const title = document.getElementById('title');
 const cover = document.getElementById('cover');
@@ -107,12 +107,12 @@ function stopVideo() {
 function muteVideo() {
   /*   console.log('mute is working'); */
   if (volumeIcon.classList.contains('fa-volume-up')) {
-    /*   console.log('Muted'); */
+    console.log('Muted');
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-up');
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-off');
     player.mute();
   } else {
-    /*   console.log('unmute'); */
+    console.log('unmute');
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-up');
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-off');
     player.unMute();
