@@ -26,8 +26,7 @@ git clone https://git@github.com:sauravv-kumar/music.git
 
 ### Contributing
 
-I welcome contributions to this project! Feel free to open a pull request with any improvements or new features, like:
-
+I welcome contributions to this project! Feel free to open a pull request with any improvements or new features, <br />like:
 * Implementing a visualizer for the music.
 * Integrating a timer for relaxation sessions.
 
