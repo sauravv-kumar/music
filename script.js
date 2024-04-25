@@ -109,12 +109,12 @@ function muteVideo() {
   if (volumeIcon.classList.contains('fa-volume-up')) {
     console.log('Muted');
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-up');
-    volumeBtn.querySelector('i.fas').classList.add('fa-volume-off');
+    volumeBtn.querySelector('i.fas').classList.add('fa-volume-mute');
     player.mute();
   } else {
     console.log('unmute');
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-up');
-    volumeBtn.querySelector('i.fas').classList.remove('fa-volume-off');
+    volumeBtn.querySelector('i.fas').classList.remove('fa-volume-mute');
     player.unMute();
   }
 }
