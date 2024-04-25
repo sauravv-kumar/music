@@ -1,20 +1,6 @@
-channel ID : UCyP8IObS7OXnWTFXt6CQ8MQ
-
 API KEY : AIzaSyCeW8HognSNlKq7KonuSMZCTo7QSSARG88
 
-playlistId: PL1gfuz7ZYcaM2Z7sCGOWORCF0CGmonzOv
-
 const url = `https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${playlistId}&key=${apiKey}`;
-
-
-playlist 
-
-mashUP :- PL2EF4HKZto6tfbMCwZlVeKiraqlhjl19a
-
-soft eng : PLUAg255I-02YdHA2NjlHNGYkERJ0pxNeX
-
-
-ani:
 
 <dotlottie-player src="https://lottie.host/8f2db99d-0fcb-40d7-8749-96b88abfddb7/X72pzRCC1d.json" background="transparent" speed="0.5" style="width: 80px; height: 80px;" loop autoplay></dotlottie-player>
 
