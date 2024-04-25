@@ -163,8 +163,6 @@ setupNextVideoListener('pheg4TLpt18'); */
 
 //////////////////////////////////////////////////////////////
 
-const apiKey = 'AIzaSyCeW8HognSNlKq7KonuSMZCTo7QSSARG88';
-
 let currentindex = 0;
 
 const songLists = [];
