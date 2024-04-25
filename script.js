@@ -129,7 +129,7 @@ function onPlayerStateChange(event) {
   } else if (event.data === 3) {
     loadText.innerHTML = 'Buffering';
   } else {
-    loadText.innerHTML = 'Listing To Some Good Music huh!';
+    loadText.innerHTML = 'listening To Some Good Music huh!';
   }
 }
 playBtn.addEventListener('click', function () {
