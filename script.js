@@ -50,7 +50,7 @@ function onYouTubeIframeAPIReady() {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
   // event.target.playVideo();
-  console.log('player is ready: ');
+  /*   console.log('player is ready: '); */
   lastDiv.classList.add('show');
   loadText.textContent = 'Press space to play!';
 }
@@ -60,7 +60,7 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 
 function playVideo() {
-  console.log('play');
+  /*  console.log('play'); */
   musicContainer.classList.add('play');
   playBtn.querySelector('i.fas').classList.remove('fa-play');
   playBtn.querySelector('i.fas').classList.add('fa-pause');
@@ -68,7 +68,7 @@ function playVideo() {
 }
 
 function pauseVideo() {
-  console.log('pause');
+  /*   console.log('pause'); */
   musicContainer.classList.remove('play');
   playBtn.querySelector('i.fas').classList.remove('fa-pause');
   playBtn.querySelector('i.fas').classList.add('fa-play');
@@ -87,7 +87,7 @@ const setProgress = (e) => {
   const width = progressContainer.clientWidth;
   const clickX = e.offsetX;
   const duration = player.getDuration();
-  console.log('clicked on load bar');
+  /*   console.log('clicked on load bar'); */
 
   player.seekTo((clickX / width) * duration, true);
 };
@@ -97,7 +97,7 @@ const toggleVolume = (e) => {
   const clickX = e.offsetX;
   player.setVolume(clickX);
   volumeProgress.style.width = `${clickX}%`;
-  console.log('vume working');
+  /*   console.log('vume working'); */
 };
 
 function stopVideo() {
@@ -105,14 +105,14 @@ function stopVideo() {
 }
 
 function muteVideo() {
-  console.log('mute is working');
+  /*   console.log('mute is working'); */
   if (volumeIcon.classList.contains('fa-volume-up')) {
-    console.log('Muted');
+    /*   console.log('Muted'); */
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-up');
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-off');
     player.mute();
   } else {
-    console.log('unmute');
+    /*   console.log('unmute'); */
     volumeBtn.querySelector('i.fas').classList.add('fa-volume-up');
     volumeBtn.querySelector('i.fas').classList.remove('fa-volume-off');
     player.unMute();
@@ -120,7 +120,7 @@ function muteVideo() {
 }
 
 function onPlayerStateChange(event) {
-  console.log(event.data);
+  /*   console.log(event.data); */
 
   if (event.data === 0) {
     goNext();
@@ -170,7 +170,7 @@ let currentindex = 0;
 const songLists = [];
 
 currentindex = Math.floor(Math.random() * 11);
-console.log(currentindex);
+/* console.log(currentindex); */
 
 fetch(
   `https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=30&playlistId=PL2EF4HKZto6swCHoX1c46zBRsxqP9Vp1Q&key=${apiKey}`
@@ -179,7 +179,7 @@ fetch(
     return response.json();
   })
   .then((data) => {
-    console.log(data);
+    /*  console.log(data); */
     songLists.push(...data.items);
 
     if (songLists.length) {
@@ -192,7 +192,7 @@ fetch(
 
 const goNext = () => {
   currentindex = Math.floor(Math.random() * 11);
-  console.log(currentindex);
+  /*   console.log(currentindex); */
   if (currentindex < songLists.length - 1) {
     currentindex++;
   } else {
@@ -209,12 +209,12 @@ const goNext = () => {
     player.loadVideoById(apiVideoId);
     stopVideo();
   }
-  console.log(title.innerText);
+  /*   console.log(title.innerText); */
 };
 
 const goPrevious = () => {
   currentindex = Math.floor(Math.random() * 11);
-  console.log(currentindex);
+  /*  console.log(currentindex); */
   currentindex--;
   if (currentindex < 0) {
     currentindex = songLists.length - 1;
@@ -230,7 +230,7 @@ const goPrevious = () => {
     player.loadVideoById(apiVideoId);
     stopVideo();
   }
-  console.log(title.innerText);
+  /*   console.log(title.innerText); */
 };
 
 nextBtn.addEventListener('click', goNext);
@@ -253,7 +253,7 @@ document.addEventListener('keydown', () => {
 
 document.addEventListener('keydown', function (event) {
   if (event.keyCode === 32 || event.keyCode === 80) {
-    console.log('key press is working');
+    /*    console.log('key press is working'); */
     if (musicContainer.classList.contains('play')) {
       pauseVideo();
     } else {
@@ -266,12 +266,12 @@ document.addEventListener('keydown', function (event) {
 document.addEventListener('keydown', () => {
   if (event.keyCode === 77) {
     if (volumeIcon.classList.contains('fa-volume-up')) {
-      console.log('Muted');
+      /*   console.log('Muted'); */
       volumeBtn.querySelector('i.fas').classList.remove('fa-volume-up');
       volumeBtn.querySelector('i.fas').classList.add('fa-volume-mute');
       player.mute();
     } else {
-      console.log('unmute');
+      /*  console.log('unmute'); */
       volumeBtn.querySelector('i.fas').classList.add('fa-volume-up');
       volumeBtn.querySelector('i.fas').classList.remove('fa-volume-mute');
       player.unMute();
