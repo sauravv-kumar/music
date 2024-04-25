@@ -1,6 +1,10 @@
-## Chill Chords: Your Relaxation Rhythms Retreat (Vanilla JS)
+<div align="center">
+ <h2 align="center"> Chill Chords🌻: Your Relaxation Rhythms Retreat (Vanilla JS)
+ </h2>
 
 This repository contains the source code for Chill Chords, a web app offering relaxing music and nature sounds for a personalized soundscape experience.
+
+</div>
 
 ### Features
 * Plays ambient background music.
@@ -27,6 +31,6 @@ I welcome contributions to this project! Feel free to open a pull request with a
 * Implementing a visualizer for the music.
 * Integrating a timer for relaxation sessions.
 
-[### License](LICENSE)
+ ### License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
