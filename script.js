@@ -280,14 +280,13 @@ document.addEventListener('keydown', () => {
 });
 
 const gifList = [
-  '/images/image (1).gif',
   '/images/image (2).gif',
   '/images/image (3).gif',
   '/images/image (4).gif',
   '/images/image (5).gif',
   '/images/image (6).gif',
   '/images/image (7).gif',
-  '/images/image (8).gif',
+
   '/images/image (9).gif',
   '/images/image (10).gif',
   '/images/image (11).gif',
@@ -301,8 +300,7 @@ const gifList = [
   '/images/image (19).gif',
   '/images/image (20).gif',
   '/images/image (21).gif',
-  '/images/image (22).gif',
-  '/images/image (23).gif',
+
   '/images/image (24).gif',
   '/images/image (25).gif',
   '/images/image (28).gif',
@@ -314,7 +312,7 @@ const gifList = [
   '/images/image (34).gif',
   '/images/image (35).gif',
   '/images/image (36).gif',
-  '/images/image (37).gif',
+
   '/images/image (38).gif',
   '/images/image (39).gif',
   '/images/image (41).gif',
